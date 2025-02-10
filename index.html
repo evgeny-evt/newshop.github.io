@@ -93,5 +93,42 @@
 <p>Телефон: +375 (29) 609-59-59</p>
 <p>Email: evgeny.evt@gmail.com</p>
 </footer>
+
+<!-- Добавьте перед закрывающим </body> -->
+<div id="imageModal" class="modal">
+<span class="close">&times;</span>
+<img class="modal-content" id="expandedImg">
+</div>
+
+
+<script type="text/javascript">
+// Обработчик клика на карточку товара
+document.querySelectorAll('.product-card').forEach(card => {
+card.addEventListener('click', function(e) {
+    const imgSrc = this.querySelector('img').src;
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('expandedImg');
+    
+    modal.style.display = "block";
+    modalImg.src = imgSrc;
+    document.body.style.overflow = 'hidden'; // Блокируем прокрутку
+});
+});
+
+// Закрытие модального окна
+const modal = document.getElementById('imageModal');
+modal.querySelector('.close').addEventListener('click', () => {
+modal.style.display = "none";
+document.body.style.overflow = 'auto';
+});
+
+// Закрытие при клике вне изображения
+modal.addEventListener('click', function(e) {
+if (e.target === this) {
+    modal.style.display = "none";
+    document.body.style.overflow = 'auto';
+}
+});
+</script>
 </body>
 </html>
