@@ -353,7 +353,7 @@ animation: line 10s alternate infinite;
     transform: translateX(0);
 }
 100%{
-    transform: translateX(-700px);
+    transform: translateX(-500px);
 }
 }
 }
